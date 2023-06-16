@@ -1,4 +1,4 @@
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Statistics = ({ title, stats }) => {
   return (
@@ -31,15 +31,11 @@ export default Statistics;
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.arrayOf(object).isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
-
-// Ошибка
-// Warning: Failed prop type:
-//  Invalid prop `stats` of type `array` supplied to`Statistics`, expected`object`.
-
-// PropTypes.shape({
-//     id: PropTypes.string.isRequired,
-//     label: PropTypes.string.isRequired,
-//     percentage: PropTypes.number.isRequired,
-//   }).isRequired,
