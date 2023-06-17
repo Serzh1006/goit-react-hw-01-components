@@ -1,20 +1,39 @@
 import PropTypes from 'prop-types';
-
+import css from './transaction.module.css';
 const TransactionHistory = ({ items }) => {
   return (
-    <table className="transaction-history">
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+    <table className={css.transactionHistory}>
+      <thead className={css.thead}>
+        <tr className={css.trhead}>
+          <th className={css.th}>Type</th>
+          <th className={css.th}>Amount</th>
+          <th className={css.th}>Currency</th>
         </tr>
       </thead>
 
       <tbody>
-        {items.map(({ id, type, amount, currency }) => {
+        {items.map(itemObj => {
+          const { id, type, amount, currency } = itemObj;
+          const getIndex = items.indexOf(itemObj);
+          if (getIndex % 2 !== 0) {
+            return (
+              <tr
+                className={css.trbody}
+                key={id}
+                style={{ backgroundColor: 'rgba(147, 172, 226,0.4)' }}
+              >
+                <td>{type}</td>
+                <td>{amount}</td>
+                <td>{currency}</td>
+              </tr>
+            );
+          }
           return (
-            <tr key={id}>
+            <tr
+              className={css.trbody}
+              key={id}
+              style={{ backgroundColor: 'white' }}
+            >
               <td>{type}</td>
               <td>{amount}</td>
               <td>{currency}</td>

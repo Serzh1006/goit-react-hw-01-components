@@ -4,7 +4,7 @@
   width: 300px;
   height: 260px;
   background-color: whitesmoke;
-  box-shadow: 3px 20px 20px black;
+  box-shadow: 0px 25px 20px -1px rgba(51, 49, 43, 0.75);
 }
 
 .description {
@@ -14,8 +14,9 @@
 
 .avatar {
   margin: 0 auto;
-  background-color: rgb(49, 40, 40);
+  background-color: rgba(49, 40, 40, 0.5);
   border-radius: 70px;
+  border: 1px solid rgb(61, 57, 57);
 }
 
 .name {
